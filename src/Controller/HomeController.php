@@ -14,7 +14,6 @@ class HomeController extends AbstractController
      */
     public function index():Response
     {
-        $response = new Response('<h1>bonjour</h1>');
-        return $response;
+        return $this->render('index.html.twig');
     }
 }
