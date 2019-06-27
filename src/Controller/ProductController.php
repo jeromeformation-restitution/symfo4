@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,6 +11,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends AbstractController
 {
+    /**
+     * Affichage des produits qu'on récupère de la BDD
+     * @return Response
+     */
+    public function liste(): Response
+    {
+        $repository = $this->getDoctrine()->getRepository(Product::class);
+        $products = $repository->findAll();
+        return $this->render('produit/liste.html.twig', ['products' => $products]);
+    }
     /**
      * @Route("/produit/formulaire")
      * @param Request $request
