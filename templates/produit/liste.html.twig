@@ -15,7 +15,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text">{{ product.description }}</p>
-                            <a href="#" class="card-link btn btn-outline-info">Détail</a>
+                            <a href="{{ path('produits', {slug:product.slug}) }}" class="card-link btn btn-outline-info">Détail</a>
                         </div>
                     </div>
                 </div>
